@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Результат поиска{% endif %}
+{% endblock %}
+{% block content %}
+<ul>
+  {% if lengthoflist == 0 %}
+    <div>По запросу ничего не найдено</div>
+  {% else %}
+  {% for product in object_list %}
+    <div class="item">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                </a>
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                ${{ product.price }}
+            </div>
+  {% endfor %}
+  {% endif %}
+</ul>
+{% endblock %}
