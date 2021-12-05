@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import OrderItem
+from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cartapp.cart import Cart
+
 
 
 def order_create(request):
@@ -24,4 +25,7 @@ def order_create(request):
                   {'cart': cart, 'form': form})
 
 def payment(request, order):
+    order_element = Order.objects.get(id=order)
+    order_element.paid = True
+    order_element.save()
     return render(request, 'orders/order/created.html', {'orderid': order})

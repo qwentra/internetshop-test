@@ -28,6 +28,10 @@ h2 { font-size:14px; line-height:16px; }
 h3 { font-size:12px; line-height:14px; text-transform: uppercase; color:#000; }
 h4 { font-size:12px; line-height:14px; text-transform: uppercase; color:#000; }
 
+#id_long_desc {
+    width: 300px;
+    height: 200px;
+}
 
 h1#logo { font-size:0; line-height:0; width:156px; height:64px; float:left; }
 h1#logo a{ display:block; height:64px; text-indent: -4000px; background:url(images/logo.gif); }
